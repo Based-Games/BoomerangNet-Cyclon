@@ -1,0 +1,8 @@
+{
+    "player1" : {
+        "bound": false
+    },
+    "player2": {
+        "bound": false
+    }
+}

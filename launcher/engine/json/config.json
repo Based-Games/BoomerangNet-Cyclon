@@ -1,0 +1,26 @@
+{
+    "system": {
+        "display": {
+            "screen": 0,
+            "resolution": "1200x600",
+            "video_mode": "window",
+            "vsync": true,
+            "hide_cursor": false 
+        },
+        "sound": {
+            "system_volume": 1.0,
+            "sfx_volume": 1.0
+        },
+        "network": {
+            "server_path": "https://engine.ez4dj.com/"
+        },
+        "game": {
+            "load_type": "exe"
+        },
+        "engine": {
+            "version": 1,
+            "build": "1.0",
+            "update_url": "pub/updates/launcher/"
+        }
+    }
+}

@@ -1,0 +1,5 @@
+pygame
+python-dotenv
+screeninfo
+typing-extensions
+argparse

@@ -1,0 +1,10 @@
+{
+    "game": {
+        "code": "CYCLON",
+        "title": "BoomerangNet Cyclon",
+        "author": "Team BoomerangNet",
+        "license": "NONE",
+        "update_url": "https://beathaus.co.kr/updates/",
+        "exe": "./cyclon/cyclon.exe"
+    }
+}

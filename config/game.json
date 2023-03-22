@@ -1,0 +1,23 @@
+{
+    "system": {
+        "version": 1.0
+    },
+    "network": {
+        "machine_id": "",
+        "shop_name": "",
+        "server_url": "",
+        "card_id": ""
+    },
+    "book_keeping": {
+        "total_coins": 0,
+        "total_credits": 0,
+        "total_services": 0
+    },
+    "settings": {
+        "price": 1,
+        "credit_set": 1,
+        "free_play": false,
+        "demo_sound": true,
+        "timer_stop": false
+    }
+}
