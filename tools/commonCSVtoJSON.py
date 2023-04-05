@@ -3,7 +3,7 @@ import sys, os, json
 args = sys.argv
 
 if len(args) != 2:
-    print("Please provide a path to your icon.csv file!")
+    print("Please provide a path to your Common.csv file!")
     sys.exit()
 
 infile = args[1]
@@ -12,19 +12,19 @@ if not os.path.exists(infile):
     sys.exit()
 
 infile = open(infile, 'r')
-in_icons = infile.read()
+in_text = infile.read()
 infile.close()
 
-icons = []
+items = []
 
-for icon in in_icons.split('\n'):
-    icon = icon.split(',')
-    icons.append({
-        'id': int(icon[0]),
-        'name': icon[1],
-        'serverId': int(icon[2]),
+for item in in_text.split('\n'):
+    item = item.split(',')
+    items.append({
+        'id': int(item[0]),
+        'name': item[1],
+        'serverId': int(item[2]),
     })
 
 outfile = open(args[1].replace('.csv', '.json'), 'w')
-outfile.write(json.dumps(icons, indent=4))
+outfile.write(json.dumps(item, indent=4))
 print('donion ringz!')
