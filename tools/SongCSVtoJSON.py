@@ -59,6 +59,10 @@ for song in songs.split('\n'):
         }
     sorted_songs.append(item)
 
+data = {
+    'songs': sorted_songs
+}
+
 outfile = open(args[1].replace('.csv', '.json'), 'w')
-outfile.write(json.dumps(sorted_songs, indent=4))
+outfile.write(json.dumps(data, indent=4))
 print('donion ringz!')

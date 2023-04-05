@@ -20,16 +20,23 @@ sorted_songs = []
 for index, song in enumerate(songs.split('\n')):
     values = song.split(',')
     item = {
-        'id': index + 1,
+        'id': int(values[0]),
+        'stage': int(values[1]),
         'songId': int(values[2]),
         'EZ': bool(int(values[3])),
         'NM': bool(int(values[4])),
         'HD': bool(int(values[5])),
         'PR': bool(int(values[6])),
         'MX': bool(int(values[7])),
+        'S1': bool(int(values[8])),
+        'S2': bool(int(values[9]))
     }
     sorted_songs.append(item)
 
+data = {
+    'stages': sorted_songs
+}
+
 outfile = open(args[1].replace('.csv', '.json'), 'w')
-outfile.write(json.dumps(sorted_songs, indent=4))
+outfile.write(json.dumps(data, indent=4))
 print('donion ringz!')
