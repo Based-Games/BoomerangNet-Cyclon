@@ -10,7 +10,9 @@
         "tempFolder": "./temp/"
     },
     "launcher": {
-        "execute": "../exe/Cyclon.exe"
+        "execute": "../exe/Cyclon.exe",
+        "skipHashCheck": false,
+        "haltOnMismatch": false
     },
     "network": {
         "baseUrl": "https://beathaus.co.kr/updates/",
