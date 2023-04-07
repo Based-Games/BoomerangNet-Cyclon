@@ -19,7 +19,6 @@ class CyclonLauncher:
             self.launcher = config.get('launcher', {})
 
         self.version = self.common.get('systemVersion', '0.0')
-        print(f'Current Build: {self.version}')
         self.taskList()
 
     def taskList(self) -> None:
@@ -27,6 +26,7 @@ class CyclonLauncher:
         Simple way of executing all required tasks.
         '''
         self.checkSystem()
+        self.checkForUpdates()
 
     def getNetworkData(self, uri: str) -> dict:
         '''
@@ -50,6 +50,7 @@ class CyclonLauncher:
         '''
         Check all game files.
         '''
+        print('\nChecking all files...')
         uri = self.network.get('hashUri')
         version = self.version.replace('.', '_')
         hashList = self.getNetworkData(f'{uri}hashList_{version}.json')
@@ -75,5 +76,47 @@ class CyclonLauncher:
                     if self.launcher.get('haltOnMismatch', True):
                         sys.exit()
 
+    def downloadUpdateFile(self, fileName: str, assetURL: str) -> None:
+        outputPath = self.common.get('downloadFolder', '')
+
+        try:
+            request = requests.get(f'{assetURL}')
+        except requests.exceptions.ConnectionError:
+            print('Unable to connect to the server!')
+            sys.exit()
+
+        if request.status_code != 200:
+            print(f'Bad response from server! Status code {request.status_code}')
+            sys.exit()
+
+        with open(f'{outputPath}{fileName}.zip', 'wb') as outFile:
+            outFile.write(request.content)
+
+    def checkForUpdates(self):
+        '''
+        Ask the server for updates
+        '''
+        print('\nChecking for updates...')
+        buildData = self.getNetworkData(self.network.get('buildFile', '')).get('builds', {})
+        thisBuild = buildData.get(self.version, {})
+        if thisBuild == {}:
+            print('Version not in server database!')
+            self.exit()
+        
+        current_release = thisBuild.get('releaseDate', '')
+        print(f'Current Build: {self.version} released on {current_release}')
+        
+        if thisBuild.get('isLatest', True):
+            print('No update required!')
+            return
+        
+        new_version = thisBuild.get('updateTo', '')
+        print(f'Update required! Version {self.version} to {new_version}')
+        new_build = buildData.get(new_version, {})
+        new_version = new_version.replace('.', '_')
+
+        update_url = new_build.get('storedAt', '')
+        print(f'Downloading {update_url} as update_{new_version}')
+        self.downloadUpdateFile(f'update_{new_version}', update_url)
 
 CyclonLauncher()
