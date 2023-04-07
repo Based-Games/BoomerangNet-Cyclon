@@ -111,8 +111,10 @@ class CyclonLauncher:
             return
         
         new_version = thisBuild.get('updateTo', '')
-        print(f'Update required! Version {self.version} to {new_version}')
         new_build = buildData.get(new_version, {})
+        new_release = new_build.get('releaseDate', '')
+        print(f'Update required! Version {self.version} to {new_version} released on {new_release}')
+
         new_version = new_version.replace('.', '_')
 
         update_url = new_build.get('storedAt', '')
