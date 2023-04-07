@@ -7,7 +7,7 @@ if not os.path.exists('./config.json'):
 
 class CyclonLauncher:
     '''
-    Simple launcher and updater program.
+    Simple launcher and update downloader program.
     '''
     def __init__(self) -> None:
         print("Welcome to the BoomerangNet Cyclon launcher program!")
@@ -29,6 +29,9 @@ class CyclonLauncher:
         self.checkSystem()
         self.checkForUpdates()
         self.startProcess()
+
+        if self.updateneeded:
+            CyclonLauncher()
 
     def getNetworkData(self, uri: str) -> dict:
         '''
@@ -78,7 +81,7 @@ class CyclonLauncher:
                     if self.launcher.get('haltOnMismatch', True):
                         sys.exit()
 
-    def downloadUpdateFile(self, fileName: str, assetURL: str) -> None:
+    def downloadUpdateFile(self, assetURL: str) -> None:
         outputPath = self.common.get('downloadFolder', '')
 
         try:
@@ -91,7 +94,7 @@ class CyclonLauncher:
             print(f'Bad response from server! Status code {request.status_code}')
             sys.exit()
 
-        with open(f'{outputPath}{fileName}.zip', 'wb') as outFile:
+        with open(f'{outputPath}update.zip', 'wb') as outFile:
             outFile.write(request.content)
 
     def checkForUpdates(self):
@@ -118,10 +121,9 @@ class CyclonLauncher:
         self.updateneeded = True
 
         print(f'Update required! Version {self.version} to {new_version} released on {new_release}')
-        new_version = new_version.replace('.', '_')
         update_url = new_build.get('storedAt', '')
-        print(f'Downloading {update_url} as update_{new_version}')
-        self.downloadUpdateFile(f'update_{new_version}', update_url)
+        print(f'Downloading {update_url} as update.zip')
+        self.downloadUpdateFile(update_url)
 
     def startProcess(self):
         '''

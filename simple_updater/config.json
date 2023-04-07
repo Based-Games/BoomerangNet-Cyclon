@@ -1,12 +1,12 @@
 {
     "common": {
-        "systemVersion": "1.1",
+        "systemVersion": "1.0",
         "headFolder": "../",
-        "downloadFolder": "./downloads/"
+        "downloadFolder": "./downloads/",
+        "updateFile": "update.zip"
     },
     "patcher": {
         "restartWhenDone": false,
-        "launcher": "./launcher.exe",
         "tempFolder": "./temp/"
     },
     "launcher": {
