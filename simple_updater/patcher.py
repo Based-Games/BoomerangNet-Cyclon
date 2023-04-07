@@ -52,7 +52,7 @@ class CyclonPatcher:
             if f == '.keep':
                 continue
             src_path = os.path.join(self.patcher.get('tempFolder', ''), f)
-            dst_path = os.path.join(self.patcher.get('../', ''), f)
+            dst_path = os.path.join('../', f)
             os.rename(src_path, dst_path)
 
 CyclonPatcher()
