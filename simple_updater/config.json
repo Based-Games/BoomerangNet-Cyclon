@@ -1,0 +1,21 @@
+{
+    "common": {
+        "systemVersion": "1.0",
+        "headFolder": "../",
+        "downloadFolder": "./downloads"
+    },
+    "patcher": {
+        "restartWhenDone": false,
+        "launcher": "./launcher.exe",
+        "tempFolder": "./temp/"
+    },
+    "launcher": {
+        "execute": "../exe/Cyclon.exe"
+    },
+    "network": {
+        "baseUrl": "https://beathaus.co.kr/updates/",
+        "buildFile": "builds.json",
+        "buildUri": "builds/",
+        "hashUri": "hashFiles/"
+    }
+}
