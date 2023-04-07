@@ -15,7 +15,6 @@
     "network": {
         "baseUrl": "https://beathaus.co.kr/updates/",
         "buildFile": "builds.json",
-        "buildUri": "builds/",
         "hashUri": "hashFiles/"
     }
 }
