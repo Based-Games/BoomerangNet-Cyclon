@@ -1,5 +1,5 @@
 # Simple BoomerangNet Cyclon launcher program
-import os, sys, json, requests, hashlib
+import os, sys, json, requests, hashlib, subprocess
 
 if not os.path.exists('./config.json'):
     print("Unable to load the config file!")
@@ -18,6 +18,7 @@ class CyclonLauncher:
             self.network = config.get('network', {})
             self.launcher = config.get('launcher', {})
 
+        self.updateneeded = False
         self.version = self.common.get('systemVersion', '0.0')
         self.taskList()
 
@@ -27,6 +28,7 @@ class CyclonLauncher:
         '''
         self.checkSystem()
         self.checkForUpdates()
+        self.startProcess()
 
     def getNetworkData(self, uri: str) -> dict:
         '''
@@ -113,12 +115,23 @@ class CyclonLauncher:
         new_version = thisBuild.get('updateTo', '')
         new_build = buildData.get(new_version, {})
         new_release = new_build.get('releaseDate', '')
+        self.updateneeded = True
+
         print(f'Update required! Version {self.version} to {new_version} released on {new_release}')
-
         new_version = new_version.replace('.', '_')
-
         update_url = new_build.get('storedAt', '')
         print(f'Downloading {update_url} as update_{new_version}')
         self.downloadUpdateFile(f'update_{new_version}', update_url)
+
+    def startProcess(self):
+        '''
+        Starts the program to run after this.
+        If self.updateneeded, run the patcher.
+        Otherwise, start the game.
+        '''
+        startFile = self.launcher.get('patcher', ) if self.updateneeded else self.launcher.get('execute', )
+
+        print(f'\nStarting {startFile}\nGoodbye!')
+        subprocess.call(startFile)
 
 CyclonLauncher()
