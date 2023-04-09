@@ -2,7 +2,7 @@
 import os, sys, json, hashlib
 
 args = sys.argv
-if len(args) != 2:
+if len(args) != 3:
     print("Please provide a path to your Cyclon install folder and version!")
     sys.exit()
 
@@ -14,13 +14,16 @@ if not os.path.exists(gameFolder):
 
 entries = []
 
-allfiles = os.listdir(gameFolder)
-for f in allfiles:
-    with open(f, 'rb') as file:
-        entries.append({
-            'name': f,
-            'hash': hashlib.md5(file.read()).hexdigest()
-        })
+for subdir, dirs, files in os.walk(gameFolder):
+    for filename in files:
+        fullfilepath = subdir + os.sep + filename
+        relfilepath = fullfilepath.replace(gameFolder, "\\.")
+
+        with open(fullfilepath, 'rb') as file:
+            entries.append({
+                'name': relfilepath,
+                'hash': hashlib.md5(file.read()).hexdigest()
+            })
 
 data = {
     'hashes': entries,
