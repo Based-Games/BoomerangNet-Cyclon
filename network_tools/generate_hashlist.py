@@ -16,6 +16,8 @@ entries = []
 
 for subdir, dirs, files in os.walk(gameFolder):
     for filename in files:
+        if filename in [".keep", 'config.json']:
+            continue
         fullfilepath = subdir + os.sep + filename
         relfilepath = fullfilepath.replace(gameFolder, "").replace("\\", '/')
 
