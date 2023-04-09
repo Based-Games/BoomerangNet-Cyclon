@@ -1,7 +1,6 @@
 {
     "common": {
         "systemVersion": "1.0",
-        "headFolder": "../",
         "downloadFolder": "./downloads/",
         "updateFile": "update.zip"
     },

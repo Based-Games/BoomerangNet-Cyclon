@@ -63,10 +63,8 @@ class CyclonLauncher:
             print('Version mismatch!')
             sys.exit()
 
-        head_folder = self.common.get('headFolder', '')
-
         for file in hashList.get('hashes', []):
-            filepath = head_folder + file.get('name', '')
+            filepath = file.get('name', '')
             if not os.path.exists(filepath):
                 print(f'{filepath} does not exist!')
                 print('Please check your install!')
