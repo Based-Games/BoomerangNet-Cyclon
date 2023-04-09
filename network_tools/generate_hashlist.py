@@ -17,11 +17,11 @@ entries = []
 for subdir, dirs, files in os.walk(gameFolder):
     for filename in files:
         fullfilepath = subdir + os.sep + filename
-        relfilepath = fullfilepath.replace(gameFolder, "\\.")
+        relfilepath = fullfilepath.replace(gameFolder, "").replace("\\", '/')
 
         with open(fullfilepath, 'rb') as file:
             entries.append({
-                'name': relfilepath,
+                'name': f'../{relfilepath}',
                 'hash': hashlib.md5(file.read()).hexdigest()
             })
 

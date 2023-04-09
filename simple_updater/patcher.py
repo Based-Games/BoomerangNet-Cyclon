@@ -46,13 +46,19 @@ class CyclonPatcher:
 
     def installUpdate(self) -> None:
         print('\nInstalling update...')
-        allfiles = os.listdir(self.patcher.get('tempFolder', ''))
 
-        for f in allfiles:
-            if f == '.keep':
-                continue
-            src_path = os.path.join(self.patcher.get('tempFolder', ''), f)
-            dst_path = os.path.join('../', f)
-            os.rename(src_path, dst_path)
+        for subdir, dirs, files in os.walk(self.patcher.get('tempFolder', '')):
+            for filename in files:
+                fullfilepath = subdir + os.sep + filename
+                fullfilepath = fullfilepath.replace('\\', '/')
+                dst_path = fullfilepath.replace('./temp', '..')
+
+                try:
+                    os.rename(fullfilepath, dst_path)
+                except FileExistsError:
+                    os.remove(dst_path)
+                    os.rename(fullfilepath, dst_path)
+                except FileNotFoundError:
+                    os.mkdir(subdir.replace('./temp', '..'))
 
 CyclonPatcher()
