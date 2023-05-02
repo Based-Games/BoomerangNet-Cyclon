@@ -34,7 +34,7 @@ data = {
 
 cleanversion = gameVersion.replace('.', '_')
 
-with open(f'{gameFolder}/hashList_{cleanversion}.json', 'w') as outFile:
+with open(f'{gameFolder}/hashList_{cleanversion}.json', 'w', encoding='UTF-8') as outFile:
     outFile.write(json.dumps(data, indent=4))
 
 print('donion ringz!')
