@@ -3,7 +3,7 @@ import random
 import string
 import binascii
 
-count = 10
+count = 100
 prefix = "BOOM"
 sector_key = [0x37, 0x21, 0x53, 0x6a, 0x72, 0x40]
 cardList = []
@@ -25,7 +25,6 @@ with open('./cards.csv', 'w', newline='') as csvFile:
     output.writerow(fields)
 
     for cardID in cardList:
-        print(cardID)
         printCode = '-'.join(cardID[i:i+4] for i in range(0, len(cardID), 4))
         cardID = binascii.hexlify(cardID.encode()).decode()
         block0 = cardID[:32]  # First 32 characters

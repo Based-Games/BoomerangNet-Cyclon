@@ -4,6 +4,8 @@
         "donion",
         "fullfilepath",
         "relfilepath",
-        "ringz"
+        "ringz",
+        "skey",
+        "smurfpass"
     ]
 }
