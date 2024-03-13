@@ -18,15 +18,16 @@ class TS_API_Crypt:
 
         return b''.join(numArray)
 
-if len(sys.argv) != 2:
-    print('usage: ts_api_decrypt.py <FILE TO DUMP>')
-    sys.exit()
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print('usage: ts_api_decrypt.py <FILE TO DUMP>')
+        sys.exit()
 
-filepath = sys.argv[1]
-if os.path.exists(filepath):
-    with open(filepath, 'rb') as sourceFile:
-        outFile = TS_API_Crypt.Decrypt(sourceFile.read())
-    with open(filepath.replace('.txt', '.xml'), 'wb') as saveFile:
-        saveFile.write(outFile)
-else:
-    print("File not found!")
+    filepath = sys.argv[1]
+    if os.path.exists(filepath):
+        with open(filepath, 'rb') as sourceFile:
+            outFile = TS_API_Crypt.Decrypt(sourceFile.read())
+        with open(filepath.replace('.txt', '.xml'), 'wb') as saveFile:
+            saveFile.write(outFile)
+    else:
+        print("File not found!")
