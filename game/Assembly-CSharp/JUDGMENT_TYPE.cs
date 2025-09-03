@@ -1,0 +1,20 @@
+﻿using System;
+
+// Token: 0x0200010E RID: 270
+public enum JUDGMENT_TYPE
+{
+	// Token: 0x04000845 RID: 2117
+	JUDGMENT_NONE = -1,
+	// Token: 0x04000846 RID: 2118
+	BREAK,
+	// Token: 0x04000847 RID: 2119
+	POOR,
+	// Token: 0x04000848 RID: 2120
+	GOOD,
+	// Token: 0x04000849 RID: 2121
+	GREAT,
+	// Token: 0x0400084A RID: 2122
+	PERFECT,
+	// Token: 0x0400084B RID: 2123
+	MAX
+}

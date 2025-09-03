@@ -74,7 +74,7 @@ class High5toCyclon():
 
             elif note_id + 1 < len(total_notes):
                 next_note = total_notes[note_id + 1]
-                if int(next_note.attrib['tick']) - int(note.attrib['tick']) > 90: # Too far! Match the last note.
+                if int(next_note.attrib['tick']) - int(note.attrib['tick']) > 100: # Too far! Match the last note.
                     last_note = total_notes[note_id - 1]
                     note.attrib['attr'] = last_note.attrib['attr']
 

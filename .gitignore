@@ -6,3 +6,4 @@ test.txt
 *.zip
 *.ogg
 *.csv
+/game/.vs

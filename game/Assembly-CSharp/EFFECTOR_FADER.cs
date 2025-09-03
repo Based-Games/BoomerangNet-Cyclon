@@ -1,0 +1,18 @@
+﻿using System;
+
+// Token: 0x02000115 RID: 277
+public enum EFFECTOR_FADER
+{
+	// Token: 0x04000881 RID: 2177
+	NONE,
+	// Token: 0x04000882 RID: 2178
+	FADEIN,
+	// Token: 0x04000883 RID: 2179
+	FADEOUT,
+	// Token: 0x04000884 RID: 2180
+	BLINK,
+	// Token: 0x04000885 RID: 2181
+	BLANK,
+	// Token: 0x04000886 RID: 2182
+	MAX
+}

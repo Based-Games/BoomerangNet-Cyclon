@@ -1,0 +1,16 @@
+﻿using System;
+
+// Token: 0x0200011D RID: 285
+public enum PLAYFSHIELDITEM
+{
+	// Token: 0x040008E0 RID: 2272
+	NONE = -1,
+	// Token: 0x040008E1 RID: 2273
+	SHIELD_X1,
+	// Token: 0x040008E2 RID: 2274
+	SHIELD_X2,
+	// Token: 0x040008E3 RID: 2275
+	SHIELD_X3,
+	// Token: 0x040008E4 RID: 2276
+	MAX
+}

@@ -1,0 +1,16 @@
+﻿using System;
+
+// Token: 0x02000108 RID: 264
+public enum INCOMGIFTPOPUP
+{
+	// Token: 0x0400081F RID: 2079
+	NONE = -1,
+	// Token: 0x04000820 RID: 2080
+	BASEGIFT,
+	// Token: 0x04000821 RID: 2081
+	LV10GIFT,
+	// Token: 0x04000822 RID: 2082
+	LV20GIFT,
+	// Token: 0x04000823 RID: 2083
+	MAX
+}

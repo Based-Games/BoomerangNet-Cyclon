@@ -25,6 +25,14 @@ CRT286_GetStatus = lib.CRT286_GetStatus
 CRT286_GetStatus.argtypes = [ctypes.c_void_p, LPBYTE]
 CRT286_GetStatus.restype = ctypes.c_int
 
+CRT310_GetStatus = lib.CRT310_GetStatus
+CRT310_GetStatus.argtypes = [ctypes.c_void_p, LPBYTE]
+CRT310_GetStatus.restype = ctypes.c_int
+
+CRT386_GetStatus = lib.CRT386_GetStatus
+CRT386_GetStatus.argtypes = [ctypes.c_void_p, LPBYTE]
+CRT386_GetStatus.restype = ctypes.c_int
+
 CRT286_Eject = lib.CRT286_Eject
 CRT286_Eject.argtypes = [ctypes.c_void_p]
 CRT286_Eject.restype = ctypes.c_int
@@ -59,6 +67,7 @@ class CardManager:
     def Init():
         text = b"Com6"
         CardManager.m_Comm = CommOpen(text)
+        print(CardManager.m_Comm)
         text = b"9600,n,8,1"
         if CommSetting(CardManager.m_Comm, text) != 0:
             print("COM Port not found!")
@@ -66,7 +75,7 @@ class CardManager:
             return
         if not CardManager.IsConnected():
             print("Card reader not found!")
-            CardManager.terminateCard()
+            # CardManager.terminateCard()
             return
         CardManager.m_bInit = True
         print("Card reader setup success!")
@@ -91,6 +100,7 @@ class CardManager:
 
     @staticmethod
     def isInsertCard():
+        print(CardManager.m_Comm)
         if RF_DetectCard(CardManager.m_Comm) != 0:
             return False
         array = (ctypes.c_byte * 4)()
@@ -126,8 +136,9 @@ class CardManager:
 
     @staticmethod
     def IsConnected():
-        b = ctypes.c_byte()
-        return CRT286_GetStatus(CardManager.m_Comm, ctypes.byref(b)) == 0
+        b = ctypes.c_byte(0)
+        return CRT310_GetStatus(CardManager.m_Comm, ctypes.byref(b)) == 0
 
 # Example usage:
 CardManager.Init()
+print(CardManager.eject())

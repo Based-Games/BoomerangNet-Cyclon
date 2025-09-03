@@ -1,0 +1,14 @@
+﻿using System;
+
+// Token: 0x02000112 RID: 274
+public enum EXTREME_STATE
+{
+	// Token: 0x04000863 RID: 2147
+	NONE = -1,
+	// Token: 0x04000864 RID: 2148
+	EXTREME,
+	// Token: 0x04000865 RID: 2149
+	SUPEREXTREME,
+	// Token: 0x04000866 RID: 2150
+	MAX
+}

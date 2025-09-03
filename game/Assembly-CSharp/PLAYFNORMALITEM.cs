@@ -1,0 +1,22 @@
+﻿using System;
+
+// Token: 0x0200011C RID: 284
+public enum PLAYFNORMALITEM
+{
+	// Token: 0x040008D7 RID: 2263
+	NONE = -1,
+	// Token: 0x040008D8 RID: 2264
+	FEVER_x2,
+	// Token: 0x040008D9 RID: 2265
+	FEVER_x3,
+	// Token: 0x040008DA RID: 2266
+	FEVER_x4,
+	// Token: 0x040008DB RID: 2267
+	FEVER_x5,
+	// Token: 0x040008DC RID: 2268
+	EXTREME_X2,
+	// Token: 0x040008DD RID: 2269
+	EXTREME_X3,
+	// Token: 0x040008DE RID: 2270
+	MAX
+}

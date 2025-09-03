@@ -1,0 +1,40 @@
+﻿using System;
+
+// Token: 0x02000114 RID: 276
+public enum EFFECTOR_SPEED
+{
+	// Token: 0x0400086F RID: 2159
+	NONE = -1,
+	// Token: 0x04000870 RID: 2160
+	X_0_5,
+	// Token: 0x04000871 RID: 2161
+	X_1,
+	// Token: 0x04000872 RID: 2162
+	X_1_5,
+	// Token: 0x04000873 RID: 2163
+	X_2,
+	// Token: 0x04000874 RID: 2164
+	X_2_5,
+	// Token: 0x04000875 RID: 2165
+	X_3,
+	// Token: 0x04000876 RID: 2166
+	X_3_5,
+	// Token: 0x04000877 RID: 2167
+	X_4,
+	// Token: 0x04000878 RID: 2168
+	X_5,
+	// Token: 0x04000879 RID: 2169
+	X_6,
+	// Token: 0x0400087A RID: 2170
+	MAX_SPEED,
+	// Token: 0x0400087B RID: 2171
+	CHAOS_X = 10,
+	// Token: 0x0400087C RID: 2172
+	CHAOS_W,
+	// Token: 0x0400087D RID: 2173
+	CHAOS_UP,
+	// Token: 0x0400087E RID: 2174
+	CHAOS_DN,
+	// Token: 0x0400087F RID: 2175
+	MAX
+}

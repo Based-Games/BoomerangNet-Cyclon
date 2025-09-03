@@ -1,0 +1,22 @@
+﻿using System;
+
+// Token: 0x0200010D RID: 269
+public enum NOTETYPE
+{
+	// Token: 0x0400083C RID: 2108
+	MOVE_FIRST = 1,
+	// Token: 0x0400083D RID: 2109
+	MOVE_FIRST_LT,
+	// Token: 0x0400083E RID: 2110
+	MOVE_FIRST_RT,
+	// Token: 0x0400083F RID: 2111
+	MOVE_SECOND = 5,
+	// Token: 0x04000840 RID: 2112
+	MOVE_SECOND_LT,
+	// Token: 0x04000841 RID: 2113
+	MOVE_SECOND_RT,
+	// Token: 0x04000842 RID: 2114
+	DIR_LT = 10,
+	// Token: 0x04000843 RID: 2115
+	DIR_RT
+}

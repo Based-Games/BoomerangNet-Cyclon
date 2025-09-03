@@ -1,0 +1,14 @@
+﻿using System;
+
+// Token: 0x02000126 RID: 294
+public enum CHECKSYSTEM
+{
+	// Token: 0x0400090D RID: 2317
+	NONE,
+	// Token: 0x0400090E RID: 2318
+	REGULAR,
+	// Token: 0x0400090F RID: 2319
+	EMERGENCY,
+	// Token: 0x04000910 RID: 2320
+	MAX
+}

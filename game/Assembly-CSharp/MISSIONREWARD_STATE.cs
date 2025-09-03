@@ -1,0 +1,12 @@
+﻿using System;
+
+// Token: 0x0200011F RID: 287
+public enum MISSIONREWARD_STATE
+{
+	// Token: 0x040008EC RID: 2284
+	NONE,
+	// Token: 0x040008ED RID: 2285
+	ALL_REWARD,
+	// Token: 0x040008EE RID: 2286
+	DUPLICATION_REWATRD
+}

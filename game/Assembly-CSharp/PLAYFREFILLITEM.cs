@@ -1,0 +1,16 @@
+﻿using System;
+
+// Token: 0x0200011E RID: 286
+public enum PLAYFREFILLITEM
+{
+	// Token: 0x040008E6 RID: 2278
+	NONE = -1,
+	// Token: 0x040008E7 RID: 2279
+	REFILL_50,
+	// Token: 0x040008E8 RID: 2280
+	REFILL_70,
+	// Token: 0x040008E9 RID: 2281
+	REFILL_100,
+	// Token: 0x040008EA RID: 2282
+	MAX
+}
